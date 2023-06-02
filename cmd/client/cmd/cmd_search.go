@@ -139,7 +139,7 @@ func statusInstalled(pluginName string, pluginVersion string, platforms []index.
 	} else if ok {
 		status = util.YellowColor("no")
 	} else {
-		status = util.GreenColor(fmt.Sprintf("unavailable on %v/%v", runtime.GOOS, runtime.GOARCH))
+		status = util.RedColor(fmt.Sprintf("unavailable on %v/%v", runtime.GOOS, runtime.GOARCH))
 	}
 
 	upgrade = statusUpgrade(install_version[pluginName], pluginVersion)
