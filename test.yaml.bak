@@ -1,0 +1,24 @@
+kind: Plugin
+metadata:
+  name: test
+spec:
+  version: v1.0
+  homepage: http://cf.com
+  shortDescription: test aaaaa
+  description: |
+    test bbbbb  ccccc.
+    dddd
+  platforms:
+  - matchLables:
+      os: "darwin"
+      arch: "amd64"
+    downloadUrl: "http://abc.com/test-darwin-amd64.tar.gz"
+    bin: test
+  - matchLables:
+      os: linux
+      arch: amd64
+    downloadUrl: "http://abc.com/test-linux-amd64.tar.gz"
+    bin: test
+  preInstall: "export aaa"
+  postInstall: "export bbb"
+
