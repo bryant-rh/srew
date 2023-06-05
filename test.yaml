@@ -1,4 +1,4 @@
-apiVersion: srew.sensorsdata/v1alpha2
+apiVersion: srew.sensors.com/v1alpha2
 kind: Plugin
 metadata:
   name: tree
