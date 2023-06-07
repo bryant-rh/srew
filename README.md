@@ -54,15 +54,15 @@ Make sure that git is installed.
 1. Run this command to download and install Srew:
 
 ```Bash
-(
-  set -x; cd "$(mktemp -d)" &&
-  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
-  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
-  SREW="srew-${OS}_${ARCH}" &&
-  curl -fsSLO "https://github.com/bryant-rh/srew/releases/latest/download/${SREW}.tar.gz" &&
-  tar zxvf "${SREW}.tar.gz" &&
-  ./"${SREW}" install srew
-)
+cd "$(mktemp -d)" && \
+OS="$(uname | tr '[:upper:]' '[:lower:]')" && \
+ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" && \
+LATEST_VERSION="$(curl -s "https://api.github.com/repos/bryant-rh/srew/releases/latest"|grep tag_name|awk '{print $2}'|tr -d '"|,')" && \
+SREW="srew_${LATEST_VERSION}_${OS}_${ARCH}" && \
+curl -fSLO "https://github.com/bryant-rh/srew/releases/latest/download/${SREW}.tar.gz" && \
+tar zxvf "${SREW}.tar.gz" &&
+./"${SREW}" install srew
+cd -
 
 ```
 
