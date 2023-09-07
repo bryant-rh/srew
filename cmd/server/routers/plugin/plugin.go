@@ -474,7 +474,7 @@ func UpdatePlugin(ctx *gin.Context) {
 			// 	return err
 			// }
 			//if info, err = tx.Detail.WithContext(ctx).Where(tx.Detail.Version.Eq(detail_data.Version)).Updates(&plugin_Detail); err != nil {
-			if info, err = tx.Detail.WithContext(ctx).Where(tx.Detail.PluginID.Eq(detail_data.PluginID)).Updates(&plugin_Detail); err != nil {
+			if info, err = tx.Detail.WithContext(ctx).Where(tx.Detail.PluginID.Eq(detail_data.PluginID), tx.Detail.Version.Eq(detail_data.Version)).Updates(&plugin_Detail); err != nil {
 				return err
 			}
 			return nil
