@@ -59,7 +59,7 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 5
           periodSeconds: 5
-        image: bryantrh/srew-server:0.1.0-6691195
+        image: bryantrh/srew-server:0.1.0-2c08b99
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
